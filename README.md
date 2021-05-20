@@ -67,7 +67,7 @@ router.beforeEach(async (to, from, next) => {
   ></jk-table>
 </template>
 
-<template v-if="chart.type === 'echarts_line'">
+<template v-if="chart.type === 'jk_echarts_line'">
   <jk-line
     :id="chart.id"
     :chart-name="chart.name"
@@ -78,7 +78,7 @@ router.beforeEach(async (to, from, next) => {
   ></jk-line>
 </template>
 
-<template v-if="chart.type === 'echarts_bar'">
+<template v-if="chart.type === 'jk_echarts_bar'">
   <jk-bar
     :id="chart.id"
     :chart-name="chart.name"
@@ -89,7 +89,7 @@ router.beforeEach(async (to, from, next) => {
   ></jk-bar>
 </template>
 
-<template v-if="chart.type === 'echarts_pie'">
+<template v-if="chart.type === 'jk_echarts_pie'">
   <jk-pie
     :id="chart.id"
     :chart-name="chart.name"
