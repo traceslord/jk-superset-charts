@@ -1,0 +1,30 @@
+{
+  "name": "jk-superset-charts",
+  "version": "1.0.0",
+  "description": "Superset Charts in JK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traceslord/jk-superset-charts.git"
+  },
+  "keywords": [
+    "JK",
+    "superset"
+  ],
+  "author": "zhuhuajian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/traceslord/jk-superset-charts/issues"
+  },
+  "homepage": "https://github.com/traceslord/jk-superset-charts#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "echarts": "^5.1.1"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.13.2"
+  }
+}
