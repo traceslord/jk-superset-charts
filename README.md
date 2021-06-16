@@ -110,6 +110,15 @@ router.beforeEach(async (to, from, next) => {
     :height="chart.height"
   ></jk-hydrograph>
 </template>
+
+<template v-if="chart.type === 'jk_number'">
+  <jk-number
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-number>
+</template>
 ```
 
 ```js
@@ -119,7 +128,8 @@ import {
   JkLine,
   JkBar,
   JkPie,
-  JkHydrograph
+  JkHydrograph,
+  JkNumber
 } from "jk-superset-charts";
 
 export default {
@@ -128,7 +138,8 @@ export default {
     JkLine,
     JkBar,
     JkPie,
-    JkHydrograph
+    JkHydrograph,
+    JkNumber
   },
   data() {
     return {
