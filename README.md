@@ -55,29 +55,6 @@ router.beforeEach(async (to, from, next) => {
 然后通过组件注册使用它，数据可通过`service`获取，示例如下：
 
 ```html
-<template v-if="chart.type === 'table'">
-  <jk-table
-    :chart-name="chart.name"
-    :chart-data="chart.data"
-    :chart-colnames="chart.colnames"
-    :pagination-page-size="chart.paginationPageSize"
-    :pagination-total="chart.paginationTotal"
-    :width="chart.width"
-    :height="chart.height"
-  ></jk-table>
-</template>
-
-<template v-if="chart.type === 'jk_echarts_line'">
-  <jk-line
-    :id="chart.id"
-    :chart-name="chart.name"
-    :chart-config="chart.config"
-    :chart-data="chart.data"
-    :width="chart.width"
-    :height="chart.height"
-  ></jk-line>
-</template>
-
 <template v-if="chart.type === 'jk_echarts_bar'">
   <jk-bar
     :id="chart.id"
@@ -87,17 +64,6 @@ router.beforeEach(async (to, from, next) => {
     :width="chart.width"
     :height="chart.height"
   ></jk-bar>
-</template>
-
-<template v-if="chart.type === 'jk_echarts_pie'">
-  <jk-pie
-    :id="chart.id"
-    :chart-name="chart.name"
-    :chart-config="chart.config"
-    :chart-data="chart.data"
-    :width="chart.width"
-    :height="chart.height"
-  ></jk-pie>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_hydrograph'">
@@ -111,6 +77,28 @@ router.beforeEach(async (to, from, next) => {
   ></jk-hydrograph>
 </template>
 
+<template v-if="chart.type === 'jk_echarts_line'">
+  <jk-line
+    :id="chart.id"
+    :chart-name="chart.name"
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-line>
+</template>
+
+<template v-if="chart.type === 'jk_echarts_line_bar'">
+  <jk-line-bar
+    :id="chart.id"
+    :chart-name="chart.name"
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-line-bar>
+</template>
+
 <template v-if="chart.type === 'jk_number'">
   <jk-number
     :chart-config="chart.config"
@@ -119,27 +107,52 @@ router.beforeEach(async (to, from, next) => {
     :height="chart.height"
   ></jk-number>
 </template>
+
+<template v-if="chart.type === 'jk_echarts_pie'">
+  <jk-pie
+    :id="chart.id"
+    :chart-name="chart.name"
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-pie>
+</template>
+
+<template v-if="chart.type === 'table'">
+  <jk-table
+    :chart-name="chart.name"
+    :chart-data="chart.data"
+    :chart-colnames="chart.colnames"
+    :pagination-page-size="chart.paginationPageSize"
+    :pagination-total="chart.paginationTotal"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-table>
+</template>
 ```
 
 ```js
 import supersetService from "jk-superset-charts/service";
 import {
-  JkTable,
-  JkLine,
   JkBar,
-  JkPie,
   JkHydrograph,
-  JkNumber
+  JkLine,
+  JkLineBar,
+  JkNumber,
+  JkPie,
+  JkTable
 } from "jk-superset-charts";
 
 export default {
   components: {
-    JkTable,
-    JkLine,
     JkBar,
-    JkPie,
     JkHydrograph,
-    JkNumber
+    JkLine,
+    JkLineBar,
+    JkNumber,
+    JkPie,
+    JkTable
   },
   data() {
     return {
