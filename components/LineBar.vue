@@ -287,7 +287,6 @@ export default {
           nameGap: config.echarts_x_axis_name_gap,
           nameRotate: config.echarts_x_axis_name_rotate,
           inverse: config.echarts_x_axis_inverse,
-          boundaryGap: false,
           axisLabel: {
             interval: config.echarts_x_axis_label_interval,
             rotate: config.echarts_x_axis_label_rotate
