@@ -59,6 +59,7 @@ router.beforeEach(async (to, from, next) => {
   <jk-bar
     :id="chart.id"
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -70,6 +71,7 @@ router.beforeEach(async (to, from, next) => {
   <jk-hydrograph
     :id="chart.id"
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -81,6 +83,7 @@ router.beforeEach(async (to, from, next) => {
   <jk-line
     :id="chart.id"
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -92,6 +95,7 @@ router.beforeEach(async (to, from, next) => {
   <jk-line-bar
     :id="chart.id"
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -101,6 +105,7 @@ router.beforeEach(async (to, from, next) => {
 
 <template v-if="chart.type === 'jk_number'">
   <jk-number
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -112,6 +117,7 @@ router.beforeEach(async (to, from, next) => {
   <jk-pie
     :id="chart.id"
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
@@ -122,6 +128,7 @@ router.beforeEach(async (to, from, next) => {
 <template v-if="chart.type === 'table'">
   <jk-table
     :chart-name="chart.name"
+    :chart-description="chart.description"
     :chart-data="chart.data"
     :chart-colnames="chart.colnames"
     :pagination-page-size="chart.paginationPageSize"
@@ -167,15 +174,16 @@ export default {
   created() {
     const id = this.chart.chart_id;
     supersetService.getData(id).then(res => {
-      this.$set(chart, "type", res[1].viz_type);
+      this.$set(chart, "type", res[2].viz_type);
       this.$set(chart, "name", res[0]);
-      this.$set(chart, "data", res[2].result[0].data);
-      if (res[1].viz_type === "table") {
-        this.$set(chart, "colnames", res[2].result[0].colnames);
-        this.$set(chart, "paginationPageSize", res[1].page_length);
-        this.$set(chart, "paginationTotal", res[2].result[0].rowcount);
+      this.$set(data, "description", res[1]);
+      this.$set(chart, "data", res[3].result[0].data);
+      if (res[2].viz_type === "table") {
+        this.$set(chart, "colnames", res[3].result[0].colnames);
+        this.$set(chart, "paginationPageSize", res[2].page_length);
+        this.$set(chart, "paginationTotal", res[3].result[0].rowcount);
       } else {
-        this.$set(chart, "config", res[1]);
+        this.$set(chart, "config", res[2]);
       }
     });
   }
