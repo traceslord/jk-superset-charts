@@ -67,6 +67,18 @@ router.beforeEach(async (to, from, next) => {
   ></jk-bar>
 </template>
 
+<template v-if="chart.type === 'jk_echarts_gantt'">
+  <jk-gantt
+    :id="chart.id"
+    :chart-name="chart.name"
+    :chart-description="chart.description"
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-gantt>
+</template>
+
 <template v-if="chart.type === 'jk_echarts_hydrograph'">
   <jk-hydrograph
     :id="chart.id"
@@ -143,6 +155,7 @@ router.beforeEach(async (to, from, next) => {
 import supersetService from "jk-superset-charts/service";
 import {
   JkBar,
+  JkGantt,
   JkHydrograph,
   JkLine,
   JkLineBar,
@@ -154,6 +167,7 @@ import {
 export default {
   components: {
     JkBar,
+    JkGantt,
     JkHydrograph,
     JkLine,
     JkLineBar,
