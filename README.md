@@ -208,7 +208,7 @@ export default {
       this.$set(chart, "data", res[3].result[0].data);
       if (res[2].viz_type === "table") {
         this.$set(chart, "colnames", res[3].result[0].colnames);
-        this.$set(chart, "paginationPageSize", res[2].page_length);
+        this.$set(chart, "paginationPageSize", Number(res[2].page_length));
         this.$set(chart, "paginationTotal", res[3].result[0].rowcount);
       } else {
         this.$set(chart, "config", res[2]);
