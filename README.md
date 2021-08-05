@@ -153,10 +153,9 @@ router.beforeEach(async (to, from, next) => {
   <jk-table
     :chart-name="chart.name"
     :chart-description="chart.description"
+    :chart-config="chart.config"
     :chart-data="chart.data"
     :chart-colnames="chart.colnames"
-    :pagination-page-size="chart.paginationPageSize"
-    :pagination-total="chart.paginationTotal"
     :width="chart.width"
     :height="chart.height"
   ></jk-table>
@@ -206,12 +205,9 @@ export default {
       this.$set(chart, "name", res[0]);
       this.$set(data, "description", res[1]);
       this.$set(chart, "data", res[3].result[0].data);
+      this.$set(chart, "config", res[2]);
       if (res[2].viz_type === "table") {
         this.$set(chart, "colnames", res[3].result[0].colnames);
-        this.$set(chart, "paginationPageSize", Number(res[2].page_length));
-        this.$set(chart, "paginationTotal", res[3].result[0].rowcount);
-      } else {
-        this.$set(chart, "config", res[2]);
       }
     });
   }
