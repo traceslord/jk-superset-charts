@@ -1,6 +1,6 @@
 {
   "name": "jk-superset-charts",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "Superset Charts in JK",
   "main": "index.js",
   "scripts": {
