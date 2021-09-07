@@ -106,6 +106,9 @@ const service = {
       const echartsEndTime = config.echarts_end_time
         ? [config.echarts_end_time]
         : [];
+      const echartsName = config.echarts_name
+        ? [config.echarts_name]
+        : [];
 
       const tempArr = [
         ...echartsIndicator,
@@ -119,7 +122,8 @@ const service = {
         ...echartsGroupby,
         ...echartsSort,
         ...echartsStartTime,
-        ...echartsEndTime
+        ...echartsEndTime,
+        ...echartsName
       ];
       tempArr.forEach(data => {
         if (params.queries[0].columns.indexOf(data) === -1)
