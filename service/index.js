@@ -106,9 +106,7 @@ const service = {
       const echartsEndTime = config.echarts_end_time
         ? [config.echarts_end_time]
         : [];
-      const echartsName = config.echarts_name
-        ? [config.echarts_name]
-        : [];
+      const echartsName = config.echarts_name ? [config.echarts_name] : [];
 
       const tempArr = [
         ...echartsIndicator,
