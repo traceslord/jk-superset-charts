@@ -107,6 +107,7 @@ const service = {
         ? [config.echarts_end_time]
         : [];
       const echartsName = config.echarts_name ? [config.echarts_name] : [];
+      const echartsPreprocessingData = config.echarts_preprocessing_data || [];
 
       const tempArr = [
         ...echartsIndicator,
@@ -121,7 +122,8 @@ const service = {
         ...echartsSort,
         ...echartsStartTime,
         ...echartsEndTime,
-        ...echartsName
+        ...echartsName,
+        ...echartsPreprocessingData
       ];
       tempArr.forEach(data => {
         if (params.queries[0].columns.indexOf(data) === -1)
