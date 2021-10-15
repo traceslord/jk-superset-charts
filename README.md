@@ -137,6 +137,18 @@ router.beforeEach(async (to, from, next) => {
   ></jk-pie>
 </template>
 
+<template v-if="chart.type === 'jk_echarts_sankey'">
+  <jk-sankey
+    :id="chart.id"
+    :chart-name="chart.name"
+    :chart-description="chart.description"
+    :chart-config="chart.config"
+    :chart-data="chart.data"
+    :width="chart.width"
+    :height="chart.height"
+  ></jk-sankey>
+</template>
+
 <template v-if="chart.type === 'jk_echarts_scatter'">
   <jk-scatter
     :id="chart.id"
@@ -172,6 +184,7 @@ import {
   JkLineBar,
   JkNumber,
   JkPie,
+  JkSankey,
   JkScatter,
   JkTable
 } from "jk-superset-charts";
@@ -185,6 +198,7 @@ export default {
     JkLineBar,
     JkNumber,
     JkPie,
+    JkSankey,
     JkScatter,
     JkTable
   },
