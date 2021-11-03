@@ -190,7 +190,7 @@ router.beforeEach(async (to, from, next) => {
 import supersetService from "jk-superset-charts/service";
 import {
   JkBar,
-  JkEchartsDiy
+  JkEchartsDiy,
   JkGantt,
   JkHydrograph,
   JkLine,
@@ -205,7 +205,7 @@ import {
 export default {
   components: {
     JkBar,
-    JkEchartsDiy
+    JkEchartsDiy,
     JkGantt,
     JkHydrograph,
     JkLine,
