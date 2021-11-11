@@ -1,6 +1,6 @@
 {
   "name": "jk-superset-charts",
-  "version": "2.9.1",
+  "version": "3.0.0",
   "description": "Superset Charts in JK",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/traceslord/jk-superset-charts#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "downloadjs": "^1.4.7",
     "echarts": "^5.1.1",
     "echarts-liquidfill": "^3.0.0",
     "echarts-stat": "^1.2.0"

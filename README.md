@@ -58,123 +58,184 @@ router.beforeEach(async (to, from, next) => {
 <template v-if="chart.type === 'jk_echarts_bar'">
   <jk-bar
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-bar>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-bar>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_diy'">
   <jk-echarts-diy
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-echarts-diy>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-echarts-diy>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_gantt'">
   <jk-gantt
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-gantt>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-gantt>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_hydrograph'">
   <jk-hydrograph
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-hydrograph>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-hydrograph>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_line'">
   <jk-line
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-line>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-line>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_line_bar'">
   <jk-line-bar
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-line-bar>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-line-bar>
 </template>
 
 <template v-if="chart.type === 'jk_number'">
   <jk-number
+    :chart-id="chart.chart_id"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-number>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-number>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_pie'">
   <jk-pie
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-pie>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-pie>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_sankey'">
   <jk-sankey
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-sankey>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-sankey>
 </template>
 
 <template v-if="chart.type === 'jk_echarts_scatter'">
   <jk-scatter
     :id="chart.id"
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
     :chart-data="chart.data"
     :width="chart.width"
     :height="chart.height"
-  ></jk-scatter>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-scatter>
 </template>
 
 <template v-if="chart.type === 'table'">
   <jk-table
+    :chart-id="chart.chart_id"
     :chart-name="chart.name"
     :chart-description="chart.description"
     :chart-config="chart.config"
@@ -182,7 +243,12 @@ router.beforeEach(async (to, from, next) => {
     :chart-colnames="chart.colnames"
     :width="chart.width"
     :height="chart.height"
-  ></jk-table>
+    is-skip
+    is-export
+  >
+    <template v-slot:skip></template>
+    <template v-slot:export></template>
+  </jk-table>
 </template>
 ```
 
