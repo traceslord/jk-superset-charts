@@ -8,6 +8,7 @@
 
 <script>
 import download from "downloadjs";
+import { formatExport } from "../../utils/dates";
 
 export default {
   props: {
@@ -30,10 +31,12 @@ export default {
     generate() {
       if (!this.data || !this.data.length) return;
       const json = this.getProcessedJson(this.data);
-      return this.export(this.jsonToCSV(json), this.name, "application/csv");
-    },
-    export(data, filename, mime) {
-      download(this.base64ToBlob(data, mime), filename, mime);
+      const data = this.jsonToCSV(json);
+      const filename = this.name.replace(
+        ".csv",
+        `_${formatExport(Date.now())}.csv`
+      );
+      return download(data, filename, "application/csv");
     },
     jsonToCSV(data) {
       const csvData = [];
